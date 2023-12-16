@@ -2,10 +2,10 @@ import Section from '../components/Section';
 
 const HomePage = () => {
     return (
-        <main>
-            <Section />
-            <Section />
-            <Section />
+        <main className='container'>
+            <Section title='Characters' />
+            <Section title='Planets' />
+            <Section title='Vehicles' />
         </main>
     )
 }
