@@ -3,9 +3,10 @@ import Section from '../components/Section';
 const HomePage = () => {
     return (
         <main className='container'>
-            <Section title='Characters' />
-            <Section title='Planets' />
-            <Section title='Vehicles' />
+            <Section target='people' title='Characters' />
+            <Section target='planets' title='Planets' />
+            <Section target='vehicles' title='Vehicles' />
+            <Section target='starships' title='Starships' />
         </main>
     )
 }

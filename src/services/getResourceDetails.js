@@ -1,11 +1,11 @@
-export const getResoruceList = (resource) => {
-    return fetch(`https://swapi.tech/api/${resource}`)
+export const getResoruceDetails = (url) => {
+    return fetch(url)
         .then(res => {
             if (!res.ok) {
                 throw Error('Error de petición');
             }
             return res.json();
         })
-        .then(res => res.results)
+        .then(res => res.result.properties)
         .catch(err => console.log(err));
 };
