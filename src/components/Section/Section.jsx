@@ -3,8 +3,8 @@ import useResorces from "../../hooks/useResources";
 
 import classes from './Section.module.css'
 
-const Section = ({ title, target }) => {
-    const { resources, isLoading } = useResorces(target);
+const Section = ({ title, resourceType }) => {
+    const { resources, isLoading } = useResorces(resourceType);
 
     if (isLoading) {
         return (
@@ -20,7 +20,7 @@ const Section = ({ title, target }) => {
             <h2 className="mb-2">{title}</h2>
             <div className={classes.carousel}>
                 {resources.map((item, index) => (
-                <Card key={index} name= { item.name }/>
+                <Card key={index} resourceType={resourceType} {...item}/>
                 ))}
             </div>
         </section>
