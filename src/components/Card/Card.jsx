@@ -1,7 +1,8 @@
-import PeopleDetails from "./components/PeopleDetails";
+import { Link } from "react-router-dom";
+
 import DetailsItem from "./components/DetailsItem";
 
-const Card = ({ name, resourceType, hair_color, cargo_capacity, population }) => {
+const Card = ({ uid, name, hair_color, cargo_capacity, population }) => {
     return (
         <div className="card" style={{ minWidth: '18rem' }}>
             <img src="..." className="card-img-top" alt="..." />
@@ -14,7 +15,9 @@ const Card = ({ name, resourceType, hair_color, cargo_capacity, population }) =>
                 <DetailsItem title="Cargo: " detail={ cargo_capacity } />
 
                 <div className="d-flex justify-between">
-                    <a href="#" className="block btn btn-primary">Go somewhere</a>
+                    <Link to={`/${uid}`} className="block btn btn-primary">
+                        See more...
+                    </Link>
                     <button type="button" className="ms-auto btn btn-warning">
                         <i className="fa-regular fa-heart"></i>
                     </button>

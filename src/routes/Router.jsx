@@ -12,7 +12,7 @@ const Router = ()=> {
             <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/:resource" element={<DetailPage /> } />
+                <Route path="/:uid" element={<DetailPage /> } />
                 <Route path="*" element={<ErrorPage /> } />
             </Routes>
         </BrowserRouter>

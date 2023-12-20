@@ -6,6 +6,11 @@ export const getResoruceDetails = (url) => {
             }
             return res.json();
         })
-        .then(res => res.result.properties)
+        .then(res => {
+            return {
+                uid: res.result._id,
+                ...res.result.properties
+            };
+        })
         .catch(err => console.log(err));
 };
