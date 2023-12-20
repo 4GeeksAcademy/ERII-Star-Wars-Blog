@@ -15,10 +15,8 @@ const useResorces = (targetResource) => {
         .catch((err) => console.log(err));
     }, []);
 
-    return{
-        resources,
-        isLoading,
-    };
+    return [resources, isLoading]
+    
 };
 
 export default useResorces;

@@ -1,19 +1,11 @@
 import Card from "../Card";
-import useResorces from "../../hooks/useResources";
+import useAppContext from "../../contexts/appContext";
 
 import classes from './Section.module.css'
 
 const Section = ({ title, resourceType }) => {
-    const { resources, isLoading } = useResorces(resourceType);
-
-    if (isLoading) {
-        return (
-            <div className="spinner-border text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
-        );
-    }
-
+    const { store } = useAppContext();
+    const resources = store[resourceType];
 
     return (
         <section className="my-5">
