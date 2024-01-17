@@ -1,12 +1,14 @@
-import { getResoruceList } from "./getResourceList";
-import { getResoruceDetails } from "./getResourceDetails";
+import { getResourceList } from "./getResourceList";
+import { getResourceDetails } from "./getResourceDetails";
 
 export const getAllDetails = (resource) => {
-    return getResoruceList(resource)
-        .then(resourceList => {
-            return Promise.all(resourceList.map((resource) => {
-                return getResoruceDetails(resource.url);
-            }));
+  return getResourceList(resource)
+    .then((resourceList) => {
+      return Promise.all(
+        resourceList.map((resource) => {
+          return getResourceDetails(resource.url);
         })
-        .catch(err => console.log(err));
+      );
+    })
+    .catch((err) => console.log(err));
 };

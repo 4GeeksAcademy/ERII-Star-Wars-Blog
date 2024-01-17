@@ -1,17 +1,54 @@
+import React from "react";
+
+import useAppContext from "../../../contexts/AppContext.jsx";
+
 const Dropdown = () => {
-    return (
-        <div className="dropdown">
-            <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Favorites
-                <span className="badge text-bg-secondary">21</span>
-            </button>
-            <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">Action</a></li>
-                <li><a className="dropdown-item" href="#">Another action</a></li>
-                <li><a className="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
-    );
-}
+  function counterFavorites() {
+    favorites.length;
+    if (favorites.length >= 1) return favorites.length;
+    else return 0;
+  }
+
+  const {
+    store: { favorites },
+    actions: { removeFromFavorites },
+  } = useAppContext();
+  return (
+    <div className="">
+      <div className="dropdown">
+        <button
+          className="btn btn-warning dropdown-toggle me-5 my-3 fw-bold"
+          type="button"
+          data-bs-toggle="dropdown"
+          data-bs-auto-close="outside"
+          aria-expanded="false"
+        >
+          Favorites {counterFavorites()}
+        </button>
+        <ul className="dropdown-menu p-3">
+          {favorites?.length ? (
+            favorites.map((el) => {
+              return (
+                <li key={el.uid}>
+                  <div className="d-flex justify-content-between">
+                    {el?.name}
+
+                    <button
+                      type="button"
+                      className="btn-close ps-4"
+                      onClick={() => removeFromFavorites(el.uid)}
+                    ></button>
+                  </div>
+                </li>
+              );
+            })
+          ) : (
+            <li>No Favorites</li>
+          )}
+        </ul>
+      </div>
+    </div>
+  );
+};
 
 export default Dropdown;
