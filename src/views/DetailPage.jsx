@@ -39,14 +39,14 @@ const DetailPage = () => {
   if (people.find((person) => person.uid == params.uid)) {
     resourceType = "people";
     resourceImage =
-      "https://starwars-visualguide.com/assets/img/characters/13.jpg";
+      "https://lumiere-a.akamaihd.net/v1/images/obi-wan-kenobi-main_3286c63c.jpeg?region=0%2C0%2C1280%2C721";
   } else if (planets.find((planet) => planet.uid == params.uid)) {
     resourceType = "planets";
-    resourceImage = "https://starwars-visualguide.com/assets/img/planets/8.jpg";
+    resourceImage = "https://static.wikia.nocookie.net/starwars/images/e/e9/AlderaanSystem-TCWAssassin.png/revision/latest?cb=20130513020535";
   } else {
     resourceType = "starships";
     resourceImage =
-      "https://starwars-visualguide.com/assets/img/starships/10.jpg";
+      "https://cdn.europosters.eu/image/1300/canvas-print-solo-a-star-wars-story-millennium-falcon-i111310.jpg";
   }
 
   return (
@@ -57,23 +57,14 @@ const DetailPage = () => {
             <img
               src={resourceImage}
               className="img-fluid"
-              style={{ maxWidth: 450 }}
+              style={{ maxWidth: 600 }}
               alt={resourceType}
             />
           </div>
           <div className="col text-start m-5">
-            <h1 className="text-center text-white">{targetResource.name}</h1>
-            <p className="me-2 text-white">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+            <h1 className="text-center text-black">{targetResource.name}</h1>
+            <p className="mt-5 me-2 text-black">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae sapiente id impedit velit quos cumque molestias blanditiis? Nemo aspernatur excepturi sapiente.
             </p>
           </div>
           <div className="container table-sm table-responsive-lg">
@@ -85,7 +76,7 @@ const DetailPage = () => {
                       key={propertyName}
                       className="text-white text-center align-middle"
                     >
-                      <strong>{transformPropertyName(propertyName)}</strong>
+                      <p>{transformPropertyName(propertyName)}</p>
                     </th>
                   ))}
                 </tr>
@@ -103,10 +94,10 @@ const DetailPage = () => {
           </div>
         </div>
       </div>
-      <div className="d-flex justify-content-end">
+      <div className="d-flex justify-content-center">
         <Link to="/">
-          <button type="button" className="btn btn-outline-light m-5">
-            Go back!
+          <button type="button" className="btn btn-outline-dark m-5">
+            Back
           </button>
         </Link>
       </div>
